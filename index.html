@@ -172,7 +172,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Custom popup styles */
         .leaflet-popup-content-wrapper {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -184,7 +183,8 @@
             color: #2c3e50;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        /* ⬇️ Tambahan RESPONSIVE LEGEND */
         @media (max-width: 768px) {
             .header {
                 padding: 1rem;
@@ -209,10 +209,30 @@
                 bottom: 5px;
                 max-width: calc(100vw - 20px);
             }
+
+            .legend {
+                padding: 8px;
+                font-size: 0.7rem;
+            }
+
+            .legend h4 {
+                font-size: 0.85rem;
+            }
+
+            .legend-item {
+                font-size: 0.65rem;
+            }
+
+            .legend-color {
+                width: 15px;
+                height: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- ... seluruh body tidak diubah, tetap sama seperti sebelumnya ... -->
+
     <div class="header">
         <h1>🌴 Peta Sebaran Kelapa Sawit</h1>
         <p>Lubuk Malako, Solok Selatan - Sumatera Barat</p>
