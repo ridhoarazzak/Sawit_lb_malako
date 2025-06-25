@@ -30,9 +30,9 @@ export default function SawitMap() {
     }
   }, []);
 
-  // ✅ Gunakan URL RAW yang benar (tanpa /data)
-  const sawitGeojsonUrl = 'https://raw.githubusercontent.com/ridhoarazzak/Sawit_lb_malako/main/shp_sawit_lb_malako.geojson';
-  const batasNagariUrl = 'https://raw.githubusercontent.com/ridhoarazzak/Sawit_lb_malako/main/shp_nagari_lb_malako.geojson';
+  // ✅ GUNAKAN PATH LOKAL DARI PUBLIC/
+  const sawitGeojsonUrl = '/shp_sawit_lb_malako.geojson';
+  const batasNagariUrl = '/shp_nagari_lb_malako.geojson';
 
   useEffect(() => {
     fetch(sawitGeojsonUrl)
@@ -55,7 +55,7 @@ export default function SawitMap() {
     pickable: true,
     autoHighlight: true,
     onHover: onHover,
-    onClick: ({ object }) => alert(`Luas: ${object.properties.luas} m²`)
+    onClick: ({ object }) => alert(`Luas: ${object.properties.luas} m2`)
   });
 
   const batasNagariLayer = new GeoJsonLayer({
@@ -120,4 +120,4 @@ export default function SawitMap() {
       )}
     </div>
   );
-                                           }
+    }
