@@ -3,7 +3,6 @@ import { DeckGL } from '@deck.gl/react';
 import { StaticMap } from 'react-map-gl';
 import { GeoJsonLayer } from '@deck.gl/layers';
 
-// Token demo publik (gunakan hanya untuk pengembangan)
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZGVtb3VzZXIiLCJhIjoiY2t1eDZjbjJrMGh0ZzJ2bXN1eWZ0Y2t3ZyJ9.6OPZ0vS-Xaepu_zUqHRtOw';
 
 export default function SawitMap() {
@@ -19,7 +18,7 @@ export default function SawitMap() {
   const [showLayer, setShowLayer] = useState(true);
   const [totalLuas, setTotalLuas] = useState(0);
 
-  const onHover = useCallback(({x, y, object}) => {
+  const onHover = useCallback(({ x, y, object }) => {
     if (object) {
       setHoverInfo({
         x,
@@ -31,8 +30,9 @@ export default function SawitMap() {
     }
   }, []);
 
-  const sawitGeojsonUrl = 'https://raw.githubusercontent.com/ridhoarazzak/Sawit_lb_malako/main/data/shp_sawit_lb_malako.geojson';
-  const batasNagariUrl = 'https://raw.githubusercontent.com/ridhoarazzak/Sawit_lb_malako/main/data/shp_nagari_lb_malako.geojson';
+  // ✅ Gunakan URL RAW yang benar (tanpa /data)
+  const sawitGeojsonUrl = 'https://raw.githubusercontent.com/ridhoarazzak/Sawit_lb_malako/main/shp_sawit_lb_malako.geojson';
+  const batasNagariUrl = 'https://raw.githubusercontent.com/ridhoarazzak/Sawit_lb_malako/main/shp_nagari_lb_malako.geojson';
 
   useEffect(() => {
     fetch(sawitGeojsonUrl)
@@ -55,7 +55,7 @@ export default function SawitMap() {
     pickable: true,
     autoHighlight: true,
     onHover: onHover,
-    onClick: ({object}) => alert(`Luas: ${object.properties.luas} m2`)
+    onClick: ({ object }) => alert(`Luas: ${object.properties.luas} m²`)
   });
 
   const batasNagariLayer = new GeoJsonLayer({
@@ -78,7 +78,7 @@ export default function SawitMap() {
   };
 
   return (
-    <div style={{position: 'relative', width: '100vw', height: '100vh'}}>
+    <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       <DeckGL
         initialViewState={viewState}
         controller={true}
@@ -112,7 +112,7 @@ export default function SawitMap() {
       {hoverInfo && (
         <div
           className="absolute z-20 pointer-events-none bg-white text-sm p-2 rounded shadow"
-          style={{left: hoverInfo.x + 10, top: hoverInfo.y + 10}}
+          style={{ left: hoverInfo.x + 10, top: hoverInfo.y + 10 }}
         >
           <div><strong>Luas:</strong> {hoverInfo.properties.luas} m²</div>
           {hoverInfo.properties.nama && <div><strong>Nama:</strong> {hoverInfo.properties.nama}</div>}
@@ -120,4 +120,4 @@ export default function SawitMap() {
       )}
     </div>
   );
-        }
+    }
