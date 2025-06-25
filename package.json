@@ -1,2 +1,22 @@
-{ "name": "sawit-deckgl-malako", "version": "1.0.0", "description": "Webmap interaktif kebun sawit aktif di Nagari Lubuk Malako menggunakan Deck.gl", "main": "src/index.js", "scripts": { "start": "react-scripts start", "build": "react-scripts build", "test": "react-scripts test", "eject": "react-scripts eject" }, "dependencies": { "@deck.gl/core": "^8.9.27", "@deck.gl/layers": "^8.9.27", "@deck.gl/react": "^8.9.27", "react": "^18.2.0", "react-dom": "^18.2.0", "react-map-gl": "^7.0.18", "react-scripts": "^5.0.1" }, "keywords": [ "deck.gl", "webmap", "sawit", "lubuk malako", "solok selatan" ], "author": "Ridho Arazzak", "license": "MIT" }
-
+{
+  "name": "sawit-webmap",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-map-gl": "^7.0.18",
+    "@deck.gl/react": "^8.9.24",
+    "@deck.gl/layers": "^8.9.24",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
+}
